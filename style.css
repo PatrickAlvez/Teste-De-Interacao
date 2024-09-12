@@ -1,0 +1,35 @@
+:root {
+    --cor-background: #2b2d42;
+    --cor-texto: #edf2f4;
+    --cor-secundaria: #ef233c;
+    --cor-terciaria: #d90429;
+    --font: "Outfit", sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--cor-background);
+}
+
+.titulo, .texto{
+    font-family: var(--font);
+    color: var(--cor-texto);
+}
+
+.titulo {
+    margin: 1rem;
+}
+
+.texto {
+    margin: 1rem;
+}
+
+#canvas {
+    border: 5px solid var(--cor-secundaria);
+    outline: 5px solid var(--cor-terciaria);
+}
