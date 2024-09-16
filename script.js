@@ -65,14 +65,14 @@ function moveObjeto() {
     const objetoCentroX = objeto.x + objeto.size / 2;
     const objetoCentroY = objeto.y + objeto.size / 2;
 
-    if (personagemCentroX < objetoCentroX) { //personagem na esquerda, move objeto pra direita
+    if (personagemCentroX < objetoCentroX && personagem.y == objeto.y) { //personagem na esquerda, move objeto pra direita
         objeto.x += objeto.speed;
-    } else if (personagemCentroX > objetoCentroX) { //personagem na direita, move objeto pra esquerda
+    } else if (personagemCentroX > objetoCentroX && personagem.y == objeto.y) { //personagem na direita, move objeto pra esquerda
         objeto.x -= objeto.speed;
     }
-    if (personagemCentroY < objetoCentroY) { //personagem em cima, move objeto para baixo
+    if (personagemCentroY < objetoCentroY && personagem.x == objeto.x) { //personagem em cima, move objeto para baixo
         objeto.y += objeto.speed;
-    } else if (personagemCentroY > objetoCentroY) { //personagem embaixo, move objeto para cima
+    } else if (personagemCentroY > objetoCentroY && personagem.x == objeto.x) { //personagem embaixo, move objeto para cima
         objeto.y -= objeto.speed;
     }
 }
