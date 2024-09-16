@@ -1,18 +1,36 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d')
 const personagem = {
-    x: canvas.width / 2,
-    y: canvas.height / 2,
+    x: multiploDeCinco(50,600),
+    y: multiploDeCinco(50,250),
     size: 50,
     speed: 5,
 };
 
 const objeto = {
-    x: 550,
-    y: 100,
+    x: multiploDeCinco(50,600),
+    y: multiploDeCinco(50,250),
     size: 50,
     speed: 10
 };
+
+function multiploDeCinco(min,max){
+    const random = Math.floor((Math.random() * ((max - min) / 5))) * 5 + min
+    return random
+}
+
+function verificaPosicoes() {
+    if(verificaColisaoObjeto()){
+        console.log(verificaColisaoObjeto());
+        objeto.x = multiploDeCinco(50,600);
+        objeto.y = multiploDeCinco(50,250);
+        verificaPosicoes();
+    }else{
+        desenhaBackground();
+        desenhaPersonagem();
+        desenhaObjeto();
+    }
+}
 
 function desenhaPersonagem() {
     ctx.fillStyle = 'red';
@@ -102,6 +120,9 @@ function movimentaPersonagem(key){
                 moveObjeto();
             }
             break;
+        case 't': //tecla de testes
+            console.log(multiploDeCinco(50,600))
+            break;
 
         default:
             break;
@@ -132,9 +153,7 @@ document.addEventListener('keydown', (evento) => {
     movimentaPersonagem(evento.key);
 });
 
-desenhaBackground();
-desenhaPersonagem();
-desenhaObjeto();
+verificaPosicoes();
 
 
 
